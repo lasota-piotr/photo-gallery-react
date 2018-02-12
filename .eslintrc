@@ -3,5 +3,8 @@
     "document": true,
     "window": true
   },
-  "extends": "airbnb"
+  "extends": [
+    "airbnb",
+    "plugin:prettier/recommended"
+  ]
 }
