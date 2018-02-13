@@ -12,6 +12,11 @@ module.exports = {
   entry: {
     app: './src/index.js',
   },
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+  },
   module: {
     rules: [
       { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
@@ -49,8 +54,7 @@ module.exports = {
     }),
     extractSass,
   ],
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+  devServer: {
+    historyApiFallback: true,
   },
 };
