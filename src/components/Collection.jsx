@@ -18,7 +18,9 @@ class Collection extends React.Component {
     this.fetchCollectionPhotos();
   }
 
-  fetchCollectionPhotos(pageNumber) {
+  fetchCollectionPhotos() {
+    const { pageNumber } = this.state;
+    this.setState({ pageNumber: pageNumber + 1 });
     const { params } = this.props.match;
     unsplashGetCollectionPhotos(params.id, pageNumber, 50, 'latest')
       .then(collectionPhotos => {
@@ -43,7 +45,10 @@ class Collection extends React.Component {
     return (
       <div>
         Collection {params.name}
-        <InfiniteGrid elements={collectionPhotos} />
+        <InfiniteGrid
+          elements={collectionPhotos}
+          loadMore={this.fetchCollectionPhotos}
+        />
       </div>
     );
   }
