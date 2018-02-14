@@ -1,5 +1,4 @@
 import React from 'react';
-import CollectionsListItem from './CollectionsListItem';
 import {
   unsplashGetCollectionPhotos,
   unsplashListFeaturedCollections,
@@ -65,18 +64,15 @@ class Collections extends React.Component {
       <div>
         {loadStateCollections === LOAD_STATE.SUCCESS ? (
           collections.map((collection, index) => (
-            <CollectionsList collection={collection} key={index}>
-              {loadStateCollectionsPhotos === LOAD_STATE.SUCCESS ? (
-                collectionsPhotos[index].map((collectionPhotos, index) => (
-                  <CollectionsListItem
-                    collectionPhotos={collectionPhotos}
-                    key={index}
-                  />
-                ))
-              ) : (
-                <Loading />
-              )}
-            </CollectionsList>
+            <CollectionsList
+              collection={collection}
+              key={index}
+              collectionPhotos={
+                collectionsPhotos.length > 0 ? collectionsPhotos[index] : []
+              }
+              isLoading={loadStateCollectionsPhotos === LOAD_STATE.LOADING}
+              isError={loadStateCollectionsPhotos === LOAD_STATE.ERROR}
+            />
           ))
         ) : (
           <Loading />

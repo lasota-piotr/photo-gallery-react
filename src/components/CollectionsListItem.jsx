@@ -1,8 +1,8 @@
 import React from 'react';
 
-const CollectionsListItem = ({ collectionPhotos }) => (
+const CollectionsListItem = ({ photo }) => (
   <span>
-    <img src={collectionPhotos.urls.thumb} />
+    <img src={photo.urls.thumb} />
   </span>
 );
 
