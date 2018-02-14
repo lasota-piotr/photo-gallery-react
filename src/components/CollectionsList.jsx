@@ -1,10 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CollectionsListItem from './CollectionsListItem';
 import Loading from './Loading';
+import slugify from '../helpers/slugify';
 
 const CollectionsList = ({ collection, ...restProps }) => (
   <div>
-    {collection.id} {collection.title}
+    <Link
+      to={`/collections/${collection.id}/${slugify(collection.title).slice(
+        0,
+        25
+      )}`}
+    >
+      {collection.title}
+    </Link>
     <br />
     <CollectionListBody {...restProps} />
   </div>
@@ -22,8 +31,6 @@ function CollectionListBody({ isLoading, isError, collectionPhotos }) {
 
   return <CollectionListItems collectionPhotos={collectionPhotos} />;
 }
-
-
 
 function CollectionListItems({ collectionPhotos }) {
   return (
