@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PhotoImage from './PhotoImage';
+import PhotoContentBody from './PhotoContentBody';
 
 const PhotoContent = ({ photoInfoCollapsed }) => (
   <div>
@@ -11,6 +12,7 @@ const PhotoContent = ({ photoInfoCollapsed }) => (
         photoInfoCollapsed.description || photoInfoCollapsed.categories.join()
       }
     />
+    <PhotoContentBody photoInfoCollapsed={photoInfoCollapsed} />
   </div>
 );
 
