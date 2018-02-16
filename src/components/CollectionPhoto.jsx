@@ -16,7 +16,7 @@ class CollectionPhoto extends Component {
     this.fetchPhotoInfo = this.fetchPhotoInfo.bind(this);
     this.onMouseEnterHandle = this.onMouseEnterHandle.bind(this);
     this.onMouseLeaveHandle = this.onMouseLeaveHandle.bind(this);
-    this.timeOutMouseEnter = undefined;
+    this.timeOutMouseEnter = {};
   }
 
   fetchPhotoInfo() {
