@@ -14,6 +14,7 @@ const CollectionPhotoLink = ({
       state: {
         photoInfo,
         photoInfoFromCollection,
+        modal: true,
       },
     }}
   >

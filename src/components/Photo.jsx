@@ -9,8 +9,8 @@ class Photo extends React.Component {
   constructor(props) {
     super(props);
     const { location } = this.props;
-    const { photoInfo, photoInfoFromCollection } = location.state;
-    console.log(location);
+    const { photoInfo = {}, photoInfoFromCollection = {} } =
+      location.state || {};
     this.state = {
       loadStatePhotoInfo:
         Object.keys(photoInfo).length > 0
@@ -27,7 +27,7 @@ class Photo extends React.Component {
   }
 
   componentDidMount() {
-    const { photoInfo } = this.props.location.state;
+    const { photoInfo = {} } = this.props.location.state = {};
     if (Object.keys(photoInfo).length <= 0) {
       this.fetchPhotoInfo();
     }
@@ -60,8 +60,8 @@ class Photo extends React.Component {
         loadStatePhotoInfo={loadStatePhotoInfo}
         loadStatePhotoInfoFromCollection={loadStatePhotoInfoFromCollection}
         photoInfoCollapsed={{
-          ...photoInfoFromCollection,
           ...photoInfo,
+          ...photoInfoFromCollection,
         }}
       />
     );
