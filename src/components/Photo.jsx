@@ -1,8 +1,71 @@
 import React from 'react';
+import PhotoImage from './PhotoImage';
+import { LOAD_STATE } from '../constants/constants';
+import { getPhoto } from '../api/api';
+import Loading from './Loading';
+import PhotoView from './PhotoView';
 
-const Photo = ({ match }) => {
-  const { params } = match;
-  return <div>Photo {params.id}</div>;
-};
+class Photo extends React.Component {
+  constructor(props) {
+    super(props);
+    const { location } = this.props;
+    const { photoInfo, photoInfoFromCollection } = location.state;
+    console.log(location);
+    this.state = {
+      loadStatePhotoInfo:
+        Object.keys(photoInfo).length > 0
+          ? LOAD_STATE.SUCCESS
+          : LOAD_STATE.LOADING,
+      loadStatePhotoInfoFromCollection:
+        Object.keys(photoInfoFromCollection).length > 0
+          ? LOAD_STATE.SUCCESS
+          : LOAD_STATE.LOADING,
+      photoInfo,
+      photoInfoFromCollection,
+    };
+    this.fetchPhotoInfo = this.fetchPhotoInfo.bind(this);
+  }
+
+  componentDidMount() {
+    const { photoInfo } = this.props.location.state;
+    if (Object.keys(photoInfo).length <= 0) {
+      this.fetchPhotoInfo();
+    }
+  }
+
+  fetchPhotoInfo() {
+    console.log('fetchPhotoInfo');
+    const { id } = this.props.match.params;
+    getPhoto(id)
+      .then(photoInfo => {
+        this.setState({
+          photoInfo,
+          loadStatePhotoInfo: LOAD_STATE.SUCCESS,
+        });
+      })
+      .catch(() => {
+        this.setState({ loadStatePhotoInfo: LOAD_STATE.ERROR });
+      });
+  }
+
+  render() {
+    const {
+      loadStatePhotoInfo,
+      loadStatePhotoInfoFromCollection,
+      photoInfo,
+      photoInfoFromCollection,
+    } = this.state;
+    return (
+      <PhotoView
+        loadStatePhotoInfo={loadStatePhotoInfo}
+        loadStatePhotoInfoFromCollection={loadStatePhotoInfoFromCollection}
+        photoInfoCollapsed={{
+          ...photoInfoFromCollection,
+          ...photoInfo,
+        }}
+      />
+    );
+  }
+}
 
 export default Photo;

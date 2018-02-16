@@ -4,12 +4,13 @@ import { LOAD_STATE } from '../constants/constants';
 import { getPhoto } from '../api/api';
 import CollectionPhotoInfo from './CollectionPhotoInfo';
 import timout from '../helpers/timout';
+import CollectionPhotoLink from './CollectionPhotoLink';
 
 class CollectionPhoto extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loadState: LOAD_STATE.LOADING,
+      loadStatePhotoInfo: LOAD_STATE.LOADING,
       photoInfo: {},
       mouseIsOver: false,
     };
@@ -25,11 +26,11 @@ class CollectionPhoto extends Component {
       .then(photoInfo => {
         this.setState({
           photoInfo,
-          loadState: LOAD_STATE.SUCCESS,
+          loadStatePhotoInfo: LOAD_STATE.SUCCESS,
         });
       })
       .catch(() => {
-        this.setState({ loadState: LOAD_STATE.ERROR });
+        this.setState({ loadStatePhotoInfo: LOAD_STATE.ERROR });
       });
   }
 
@@ -37,7 +38,7 @@ class CollectionPhoto extends Component {
     this.timeOutMouseEnter = timout(500);
     this.timeOutMouseEnter.promise.then(() => {
       this.setState({ mouseIsOver: true });
-      if (this.state.loadState !== LOAD_STATE.SUCCESS) {
+      if (this.state.loadStatePhotoInfo !== LOAD_STATE.SUCCESS) {
         this.fetchPhotoInfo();
       }
     });
@@ -50,17 +51,23 @@ class CollectionPhoto extends Component {
 
   render() {
     const { photo } = this.props;
-    const { mouseIsOver, loadState, photoInfo } = this.state;
+    const { mouseIsOver, loadStatePhotoInfo, photoInfo } = this.state;
     return (
       <div
         onMouseEnter={this.onMouseEnterHandle}
         onMouseLeave={this.onMouseLeaveHandle}
       >
-        <img src={photo.urls.small} />
+        <CollectionPhotoLink
+          photoId={photo.id}
+          photoInfo={photoInfo}
+          photoInfoFromCollection={photo}
+        >
+          <img src={photo.urls.small} />
+        </CollectionPhotoLink>
         {mouseIsOver && (
           <CollectionPhotoInfo
             likes={photo.likes}
-            photoInfoIsLoading={loadState === LOAD_STATE.LOADING}
+            photoInfoIsLoading={loadStatePhotoInfo === LOAD_STATE.LOADING}
             photoInfo={photoInfo}
           />
         )}
