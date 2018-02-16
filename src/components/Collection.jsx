@@ -12,6 +12,7 @@ class Collection extends React.Component {
       collectionPhotos: [],
       pageNumber: 1,
       order: 'latest',
+      allPhotosAreFetched: false,
     };
     this.fetchCollectionPhotos = this.fetchCollectionPhotos.bind(this);
     this.handleChangeOrder = this.handleChangeOrder.bind(this);
@@ -24,7 +25,10 @@ class Collection extends React.Component {
   }
 
   fetchCollectionPhotos() {
-    const { pageNumber } = this.state;
+    const { pageNumber, allPhotosAreFetched } = this.state;
+    if (allPhotosAreFetched) {
+      return;
+    }
     console.log(pageNumber);
     this.setState({ pageNumber: pageNumber + 1 });
     const { params } = this.props.match;
@@ -32,6 +36,7 @@ class Collection extends React.Component {
     unsplashGetCollectionPhotos(params.id, pageNumber, 50, this.state.order)
       .then(collectionPhotos => {
         this.setState(prevState => ({
+          allPhotosAreFetched: collectionPhotos.length <= 0,
           collectionPhotos: [
             ...prevState.collectionPhotos,
             ...collectionPhotos,
@@ -48,7 +53,12 @@ class Collection extends React.Component {
 
   handleChangeOrder(event) {
     const { value: order } = event.target;
-    this.setState({ order, collectionPhotos: [], pageNumber: 1 });
+    this.setState({
+      order,
+      collectionPhotos: [],
+      pageNumber: 1,
+      allPhotosAreFetched: false,
+    });
   }
 
   render() {
