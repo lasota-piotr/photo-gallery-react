@@ -2,6 +2,7 @@ import React from 'react';
 import { LOAD_STATE } from '../constants/constants';
 import { unsplashGetCollectionPhotos } from '../api/api';
 import InfiniteGrid from './InfiniteGrid';
+import CollectionSelectOrder from './CollectionSelectOrder';
 
 class Collection extends React.Component {
   constructor(props) {
@@ -10,19 +11,25 @@ class Collection extends React.Component {
       loadState: LOAD_STATE.LOADING,
       collectionPhotos: [],
       pageNumber: 1,
+      order: 'latest',
     };
     this.fetchCollectionPhotos = this.fetchCollectionPhotos.bind(this);
+    this.handleChangeOrder = this.handleChangeOrder.bind(this);
   }
 
-  componentDidMount() {
-    this.fetchCollectionPhotos();
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.order !== this.state.order) {
+      this.fetchCollectionPhotos();
+    }
   }
 
   fetchCollectionPhotos() {
     const { pageNumber } = this.state;
+    console.log(pageNumber);
     this.setState({ pageNumber: pageNumber + 1 });
     const { params } = this.props.match;
-    unsplashGetCollectionPhotos(params.id, pageNumber, 50, 'latest')
+    this.setState({ loadState: LOAD_STATE.LOADING });
+    unsplashGetCollectionPhotos(params.id, pageNumber, 50, this.state.order)
       .then(collectionPhotos => {
         this.setState(prevState => ({
           collectionPhotos: [
@@ -39,12 +46,21 @@ class Collection extends React.Component {
       });
   }
 
+  handleChangeOrder(event) {
+    const { value: order } = event.target;
+    this.setState({ order, collectionPhotos: [], pageNumber: 1 });
+  }
+
   render() {
     const { params } = this.props.match;
-    const { collectionPhotos } = this.state;
+    const { collectionPhotos, order } = this.state;
     return (
       <div>
         Collection {params.name}
+        <CollectionSelectOrder
+          currentOrder={order}
+          handleChange={this.handleChangeOrder}
+        />
         <InfiniteGrid
           elements={collectionPhotos}
           loadMore={this.fetchCollectionPhotos}
