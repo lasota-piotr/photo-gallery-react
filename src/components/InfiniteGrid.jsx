@@ -1,14 +1,15 @@
 import React from 'react';
 import Waypoint from 'react-waypoint';
 import CollectionPhoto from './CollectionPhoto';
+import Loading from './Loading';
 
-const InfiniteGrid = ({ elements, loadMore }) => (
+const InfiniteGrid = ({ elements, loadMore, isLoading }) => (
   <div>
     {elements.map((element, index) => (
       <CollectionPhoto photo={element} key={index} />
     ))}
     <Waypoint onEnter={loadMore} bottomOffset="-700px">
-      <div>End of list</div>
+      <div>{isLoading ? <Loading /> : <div>End of list</div>}</div>
     </Waypoint>
   </div>
 );

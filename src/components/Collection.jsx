@@ -63,7 +63,7 @@ class Collection extends React.Component {
 
   render() {
     const { params } = this.props.match;
-    const { collectionPhotos, order } = this.state;
+    const { collectionPhotos, order, loadState } = this.state;
     return (
       <div>
         Collection {params.name}
@@ -74,6 +74,7 @@ class Collection extends React.Component {
         <InfiniteGrid
           elements={collectionPhotos}
           loadMore={this.fetchCollectionPhotos}
+          isLoading={loadState === LOAD_STATE.LOADING}
         />
       </div>
     );
