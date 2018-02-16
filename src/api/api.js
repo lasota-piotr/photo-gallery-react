@@ -9,3 +9,6 @@ export const unsplashListFeaturedCollections = () =>
 
 export const unsplashGetCollectionPhotos = (...args) =>
   unsplash.collections.getCollectionPhotos(...args).then(toJson);
+
+export const getPhoto = (...args) =>
+  unsplash.photos.getPhoto(...args).then(toJson);
