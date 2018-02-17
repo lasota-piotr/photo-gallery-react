@@ -35,7 +35,7 @@ class Collections extends React.Component {
       .then(collections =>
         Promise.all(
           collections.map(collection =>
-            unsplashGetCollectionPhotos(collection.id, 1, 3, 'latest')
+            unsplashGetCollectionPhotos(collection.id, 1, 10, 'latest')
           )
         )
       )
