@@ -1,15 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Avatar from './reusable/Avatar';
 import ExternalLink from './reusable/ExternalLink';
 
+const PhotoAuthorLayout = styled.section`
+  display: flex;
+  align-items: center;
+`;
+
+const PhotoAuthorTitle = styled.h4`
+  margin-bottom: 0;
+  margin-left: ${props => props.theme.unit};
+`;
+
 const PhotoAuthor = ({ name, link, avatar }) => (
-  <section>
+  <PhotoAuthorLayout>
     <ExternalLink to={link}>
       <Avatar src={avatar} name={name} />
-      <h4>{name}</h4>
     </ExternalLink>
-  </section>
+    <ExternalLink to={link} noUnderline>
+      <PhotoAuthorTitle>{name}</PhotoAuthorTitle>
+    </ExternalLink>
+  </PhotoAuthorLayout>
 );
 
 PhotoAuthor.propTypes = {
