@@ -41,6 +41,7 @@
     "react-dom": "^16.2.0",
     "react-facebook": "^4.2.1",
     "react-modal": "^3.2.1",
+    "react-placeholder": "^2.0.0",
     "react-router-dom": "^4.2.2",
     "react-waypoint": "^8.0.0",
     "remove": "^0.1.5",
