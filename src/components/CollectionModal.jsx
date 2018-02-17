@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
-import styled from 'styled-components';
 import Photo from './Photo';
+import ModalCloseButton from './reusable/ModalCloseButton';
 
 const CollectionModal = props => {
   const back = e => {
@@ -11,7 +11,7 @@ const CollectionModal = props => {
   };
   return (
     <Modal isOpen onRequestClose={back}>
-      <button onClick={back}>close</button>
+      <ModalCloseButton onClick={back} />
       <Photo {...props} />
     </Modal>
   );
