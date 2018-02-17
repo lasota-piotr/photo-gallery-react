@@ -23,6 +23,7 @@ const HeaderLayout = styled.header`
 
 const Nav = styled.nav`
   margin-left: auto;
+  padding-left: ${props => props.theme.unit};
 `;
 
 const NavList = styled.ul`
@@ -35,6 +36,8 @@ const activeClassName = 'is-active';
 const NavLinkItem = styled(NavLink).attrs({
   activeClassName,
 })`
+  padding-left: ${props => props.theme.unitTiny};
+  padding-right: ${props => props.theme.unitTiny};
   color: ${props => props.theme.colorText};
   &:hover {
     text-decoration: none;
