@@ -8,6 +8,7 @@ const AvatarImg = styled.img`
   border-radius: 50%;
   overflow: hidden;
   object-fit: cover;
+  flex-shrink: 0;
 `;
 
 const Avatar = ({ name, src }) => <AvatarImg src={src} alt={name} />;
