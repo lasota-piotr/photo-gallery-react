@@ -21,7 +21,7 @@ const unsplashMock = {
   },
   photos: {
     getPhoto() {
-      return delay(500).then(() => unsplashDataGetPhotoWithoutCountry);
+      return delay(500).then(() => unsplashDataGetPhotoWithCountry);
     },
   },
 };

@@ -3500,189 +3500,89 @@ export const unsplashDataGetPhotoWithoutCountry = {
 };
 
 export const unsplashDataGetPhotoWithCountry = {
-  id: 'Dwu85P9SOIk',
-  created_at: '2016-05-03T11:00:28-04:00',
-  updated_at: '2016-07-10T11:00:01-05:00',
-  width: 2448,
-  height: 3264,
-  color: '#6E633A',
-  downloads: 1345,
-  likes: 24,
+  id: '4XWhN4p5DfI',
+  created_at: '2018-02-13T09:59:07-05:00',
+  updated_at: '2018-02-14T10:32:43-05:00',
+  width: 2424,
+  height: 3542,
+  color: '#090701',
+  description: null,
+  categories: [],
+  urls: {
+    raw:
+      'https://images.unsplash.com/photo-1518533810653-c9a754f18e2b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIxMTcxfQ&s=d7d4d597417814be0d9ce250538e8911',
+    full:
+      'https://images.unsplash.com/photo-1518533810653-c9a754f18e2b?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjIxMTcxfQ&s=ba991b784ad4a79e053c676f05aab99f',
+    regular:
+      'https://images.unsplash.com/photo-1518533810653-c9a754f18e2b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjIxMTcxfQ&s=f1cd2e228cf1c2e5f7bd66304aabece9',
+    small:
+      'https://images.unsplash.com/photo-1518533810653-c9a754f18e2b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjIxMTcxfQ&s=e1847499b139077f3e8c7957a1e24a22',
+    thumb:
+      'https://images.unsplash.com/photo-1518533810653-c9a754f18e2b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjIxMTcxfQ&s=7675fefa8ce931212a870ebaa7e5a615',
+    custom:
+      'https://images.unsplash.com/photo-1518533810653-c9a754f18e2b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=&h=&rect=&fit=crop&s=28e9dd4a2d83d55cacebbcfe8c9aca58',
+  },
+  links: {
+    self: 'https://api.unsplash.com/photos/4XWhN4p5DfI',
+    html: 'https://unsplash.com/photos/4XWhN4p5DfI',
+    download: 'https://unsplash.com/photos/4XWhN4p5DfI/download',
+    download_location: 'https://api.unsplash.com/photos/4XWhN4p5DfI/download',
+  },
   liked_by_user: false,
-  description: 'A man drinking a coffee.',
+  sponsored: false,
+  likes: 25,
+  user: {
+    id: '1aivQP1zWwI',
+    updated_at: '2018-02-17T07:23:08-05:00',
+    username: 'dani_vivanco',
+    name: 'Dani Vivanco',
+    first_name: 'Dani',
+    last_name: 'Vivanco',
+    twitter_username: null,
+    portfolio_url: 'http://www.danivivancophotography.com',
+    bio: 'Sunset chaser and extreme golden hour advocate',
+    location: 'Orange County, CA',
+    links: {
+      self: 'https://api.unsplash.com/users/dani_vivanco',
+      html: 'https://unsplash.com/@dani_vivanco',
+      photos: 'https://api.unsplash.com/users/dani_vivanco/photos',
+      likes: 'https://api.unsplash.com/users/dani_vivanco/likes',
+      portfolio: 'https://api.unsplash.com/users/dani_vivanco/portfolio',
+      following: 'https://api.unsplash.com/users/dani_vivanco/following',
+      followers: 'https://api.unsplash.com/users/dani_vivanco/followers',
+    },
+    profile_image: {
+      small:
+        'https://images.unsplash.com/profile-fb-1506095555-9d60f7a9995a.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32&s=0360296f7638aaea6d2d4c8bce7abbe8',
+      medium:
+        'https://images.unsplash.com/profile-fb-1506095555-9d60f7a9995a.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64&s=58291f18f68a54650679cacb31c40bc3',
+      large:
+        'https://images.unsplash.com/profile-fb-1506095555-9d60f7a9995a.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=a8f1b256d43d9b8d7acb8adca9395d0a',
+    },
+    total_collections: 2,
+    total_likes: 84,
+    total_photos: 17,
+  },
+  current_user_collections: [],
+  slug: null,
+  location: {
+    title: 'Laguna Beach, United States',
+    name: 'Laguna Beach',
+    city: 'Laguna Beach',
+    country: 'United States',
+    position: {
+      latitude: 33.5427189,
+      longitude: -117.7853568,
+    },
+  },
   exif: {
     make: 'Canon',
-    model: 'Canon EOS 40D',
-    exposure_time: '0.011111111111111112',
-    aperture: '4.970854',
-    focal_length: '37',
-    iso: 100,
+    model: 'Canon EOS 5D Mark III',
+    exposure_time: '1/4000',
+    aperture: '2',
+    focal_length: '50',
+    iso: 125,
   },
-  location: {
-    city: 'Montreal',
-    country: 'Canada',
-    position: {
-      latitude: 45.4732984,
-      longitude: -73.6384879,
-    },
-  },
-  current_user_collections: [
-    // The *current user's* collections that this photo belongs to.
-    {
-      id: 206,
-      title: 'Makers: Cat and Ben',
-      published_at: '2016-01-12T18:16:09-05:00',
-      updated_at: '2016-07-10T11:00:01-05:00',
-      curated: false,
-      cover_photo: {
-        id: 'xCmvrpzctaQ',
-        width: 7360,
-        height: 4912,
-        color: '#040C14',
-        likes: 12,
-        liked_by_user: false,
-        description: 'A man drinking a coffee.',
-        user: {
-          id: 'eUO1o53muso',
-          username: 'crew',
-          name: 'James Example',
-          first_name: 'James',
-          last_name: 'Example',
-          twitter_username: 'crew',
-          portfolio_url: 'https://crew.co/',
-          bio:
-            'Work with the best designers and developers without breaking the bank.',
-          location: 'Montreal',
-          total_likes: 0,
-          total_photos: 74,
-          total_collections: 52,
-          profile_image: {
-            small:
-              'https://images.unsplash.com/profile-1441298102341-b7ba36fdc35c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=32&w=32',
-            medium:
-              'https://images.unsplash.com/profile-1441298102341-b7ba36fdc35c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=64&w=64',
-            large:
-              'https://images.unsplash.com/profile-1441298102341-b7ba36fdc35c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=128&w=128',
-          },
-          links: {
-            self: 'https://api.unsplash.com/users/crew',
-            html: 'http://unsplash.com/crew',
-            photos: 'https://api.unsplash.com/users/crew/photos',
-            likes: 'https://api.unsplash.com/users/crew/likes',
-            portfolio: 'https://api.unsplash.com/users/crew/portfolio',
-          },
-        },
-        urls: {
-          raw: 'https://images.unsplash.com/photo-1452457807411-4979b707c5be',
-          full:
-            'https://images.unsplash.com/photo-1452457807411-4979b707c5be?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy',
-          regular:
-            'https://images.unsplash.com/photo-1452457807411-4979b707c5be?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max',
-          small:
-            'https://images.unsplash.com/photo-1452457807411-4979b707c5be?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=400&fit=max',
-          thumb:
-            'https://images.unsplash.com/photo-1452457807411-4979b707c5be?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=200&fit=max',
-        },
-        categories: [
-          {
-            id: 6,
-            title: 'People',
-            photo_count: 9844,
-            links: {
-              self: 'https://api.unsplash.com/categories/6',
-              photos: 'https://api.unsplash.com/categories/6/photos',
-            },
-          },
-        ],
-        links: {
-          self: 'https://api.unsplash.com/photos/xCmvrpzctaQ',
-          html: 'https://unsplash.com/photos/xCmvrpzctaQ',
-          download: 'https://unsplash.com/photos/xCmvrpzctaQ/download',
-          download_location:
-            'https://api.unsplash.com/photos/xCmvrpzctaQ/download',
-        },
-      },
-      user: {
-        id: 'eUO1o53muso',
-        username: 'crew',
-        updated_at: '2016-07-10T11:00:01-05:00',
-        name: 'Crew',
-        portfolio_url: 'https://crew.co/',
-        bio:
-          'Work with the best designers and developers without breaking the bank.',
-        location: 'Montreal',
-        total_likes: 0,
-        total_photos: 74,
-        total_collections: 52,
-        profile_image: {
-          small:
-            'https://images.unsplash.com/profile-1441298102341-b7ba36fdc35c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=32&w=32',
-          medium:
-            'https://images.unsplash.com/profile-1441298102341-b7ba36fdc35c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=64&w=64',
-          large:
-            'https://images.unsplash.com/profile-1441298102341-b7ba36fdc35c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=128&w=128',
-        },
-        links: {
-          self: 'https://api.unsplash.com/users/crew',
-          html: 'https://unsplash.com/crew',
-          photos: 'https://api.unsplash.com/users/crew/photos',
-          likes: 'https://api.unsplash.com/users/crew/likes',
-          portfolio: 'https://api.unsplash.com/users/crew/portfolio',
-        },
-      },
-      links: {
-        self: 'https://api.unsplash.com/collections/206',
-        html: 'https://unsplash.com/collections/206',
-        photos: 'https://api.unsplash.com/collections/206/photos',
-      },
-    },
-    // ... more collections
-  ],
-  urls: {
-    raw: 'https://images.unsplash.com/photo-1417325384643-aac51acc9e5d',
-    full:
-      'https://images.unsplash.com/photo-1417325384643-aac51acc9e5d?q=75&fm=jpg',
-    regular:
-      'https://images.unsplash.com/photo-1417325384643-aac51acc9e5d?q=75&fm=jpg&w=1080&fit=max',
-    small:
-      'https://images.unsplash.com/photo-1417325384643-aac51acc9e5d?q=75&fm=jpg&w=400&fit=max',
-    thumb:
-      'https://images.unsplash.com/photo-1417325384643-aac51acc9e5d?q=75&fm=jpg&w=200&fit=max',
-  },
-  categories: [
-    {
-      id: 4,
-      title: 'Nature',
-      photo_count: 24783,
-      links: {
-        self: 'https://api.unsplash.com/categories/4',
-        photos: 'https://api.unsplash.com/categories/4/photos',
-      },
-    },
-  ],
-  links: {
-    self: 'https://api.unsplash.com/photos/Dwu85P9SOIk',
-    html: 'https://unsplash.com/photos/Dwu85P9SOIk',
-    download: 'https://unsplash.com/photos/Dwu85P9SOIk/download',
-    download_location: 'https://api.unsplash.com/photos/Dwu85P9SOIk/download',
-  },
-  user: {
-    id: 'QPxL2MGqfrw',
-    updated_at: '2016-07-10T11:00:01-05:00',
-    username: 'exampleuser',
-    name: 'Joe Example',
-    portfolio_url: 'https://example.com/',
-    bio: 'Just an everyday Joe',
-    location: 'Montreal',
-    total_likes: 5,
-    total_photos: 10,
-    total_collections: 13,
-    links: {
-      self: 'https://api.unsplash.com/users/exampleuser',
-      html: 'https://unsplash.com/exampleuser',
-      photos: 'https://api.unsplash.com/users/exampleuser/photos',
-      likes: 'https://api.unsplash.com/users/exampleuser/likes',
-      portfolio: 'https://api.unsplash.com/users/exampleuser/portfolio',
-    },
-  },
+  views: 102372,
+  downloads: 235,
 };
