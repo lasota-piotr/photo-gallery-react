@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PhotoImage from './PhotoImage';
 import PhotoContentBody from './PhotoContentBody';
+import { LOAD_STATE } from '../constants/constants';
 
-const PhotoContent = ({ photoInfoCollapsed }) => (
+const PhotoContent = ({ photoInfoCollapsed, loadStatePhotoInfo }) => (
   <div>
     <PhotoImage
       srcRegular={photoInfoCollapsed.urls.regular}
@@ -12,7 +13,7 @@ const PhotoContent = ({ photoInfoCollapsed }) => (
         photoInfoCollapsed.description || photoInfoCollapsed.categories.join()
       }
     />
-    <PhotoContentBody photoInfoCollapsed={photoInfoCollapsed} />
+    <PhotoContentBody photoInfoCollapsed={photoInfoCollapsed} additionalInfoIsLoading={loadStatePhotoInfo === LOAD_STATE.LOADING} />
   </div>
 );
 

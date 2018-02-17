@@ -13,7 +13,7 @@ const CollectionPhotoInfo = ({ likes, photoInfoIsLoading, photoInfo }) => {
       ) : (
         <Fragment>
           <span>Downloads: {downloads}</span>
-          {!!country && <span>Country: {country}</span>}
+          {country && <span>Country: {country}</span>}
         </Fragment>
       )}
     </div>
