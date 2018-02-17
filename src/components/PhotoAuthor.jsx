@@ -4,12 +4,12 @@ import Avatar from './reusable/Avatar';
 import ExternalLink from './reusable/ExternalLink';
 
 const PhotoAuthor = ({ name, link, avatar }) => (
-  <secion>
+  <section>
     <ExternalLink to={link}>
-      <Avatar src={avatar} />
+      <Avatar src={avatar} name={name} />
       <h4>{name}</h4>
     </ExternalLink>
-  </secion>
+  </section>
 );
 
 PhotoAuthor.propTypes = {
