@@ -17,6 +17,7 @@ $font-weight-medium:  500;
 $font-weight-bold:    700;
 
 // Standardise some UI treatments.
+$border: 1px solid $color-gray-light;
 $radius: 3px !default;
 $transition: all 300ms ease-in-out !default;
 
