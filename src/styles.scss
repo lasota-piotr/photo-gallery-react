@@ -1,5 +1,18 @@
-@import '~normalize.css';
+//SETTINGS
+@import "./styles/settings.global";
+@import "./styles/settings.colors";
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
+// GENERIC
+@import "./styles/generic.box-sizing";
+@import '~normalize.css';
+@import "./styles/generic.reset";
+@import "./styles/generic.shared";
+
+// ELEMENTS
+@import "./styles/elements.page";
+@import "./styles/elements.headings";
+@import "./styles/elements.images";
+@import "./styles/elements.links";
+
+// UTILS
+@import "./styles/utils.export-variables";

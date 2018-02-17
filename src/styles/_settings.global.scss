@@ -1,0 +1,33 @@
+///* ========================================================================
+//   #GLOBAL
+//   ======================================================================== */
+// The global settings file contains any project-wide variables; things that
+// need to be made available to the entire codebase.
+
+// Fonts
+$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+// Font size
+$font-size: 16px;
+$line-height: 1.4;
+
+// Font weight
+$font-weight-regular: 300;
+$font-weight-medium:  500;
+$font-weight-bold:    700;
+
+// Standardise some UI treatments.
+$radius: 3px !default;
+$transition: all 300ms ease-in-out !default;
+
+// Units
+$unit:          16px;
+$unit-xxtiny:   (0.125 * $unit); // 2px
+$unit-xtiny:    (0.25  * $unit); // 4px
+$unit-tiny:     (0.5   * $unit); // 8px
+$unit-small:    (0.75  * $unit); // 12px
+$unit-large:    (1.5   * $unit); // 24px
+$unit-xlarge:   (2     * $unit); // 32px
+$unit-xxlarge:  (3     * $unit); // 48px
+$unit-xxxlarge: (3.5   * $unit); // 56px
+$unit-huge:     (4     * $unit); // 64px

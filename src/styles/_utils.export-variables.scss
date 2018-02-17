@@ -1,0 +1,52 @@
+:export {
+  fontFamily: $font-family;
+
+  fontSize: $font-size;
+  lineHeight: $line-height;
+
+  fontWeightRegular: $font-weight-regular;
+  fontWeightMedium: $font-weight-medium;
+  fontWeightBold: $font-weight-bold;
+
+  globalRadius: $radius;
+  globalTransition: $transition;
+
+  unit: $unit;
+  unitXxtiny: $unit-xxtiny;
+  unitXtiny: $unit-xtiny;
+  unitTiny: $unit-tiny;
+  unitSmall: $unit-small;
+  unitLarge: $unit-large;
+  unitXlarge: $unit-xlarge;
+  unitXxlarge: $unit-xxlarge;
+  unitXxxlarge: $unit-xxxlarge;
+  unitHuge: $unit-huge;
+
+  colorBrand: $color-brand;
+  colorBrandLight: $color-brand-light;
+  colorBrandDark: $color-brand-dark;
+
+  colorPrimary: $color-primary;
+  colorPrimaryLight: $color-primary-light;
+
+  colorAccent: $color-accent;
+  colorAccentDark: $color-accent-dark;
+
+  colorGray: $color-gray;
+  colorGrayLight: $color-gray-light;
+  colorGray: $color-gray-dark;
+    // Page
+  colorBaseBackground: $color-base-background;
+    // Buttons
+  colorBtn: $color-btn;
+  colorBtnHover: $color-btn-hover;
+    // Text
+  colorText: $color-text;
+    // Links
+  colorLink: $color-link;
+  colorLinkHover: $color-link-hover;
+    // Icons
+  colorIcon: $color-icon;
+  colorIconHover: $color-icon-hover;
+
+}
