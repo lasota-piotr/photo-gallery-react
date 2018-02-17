@@ -36,12 +36,14 @@
   },
   "dependencies": {
     "normalize.css": "^8.0.0",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-facebook": "^4.2.1",
     "react-modal": "^3.2.1",
     "react-router-dom": "^4.2.2",
     "react-waypoint": "^8.0.0",
+    "remove": "^0.1.5",
     "style-loader": "^0.20.1",
     "styled-components": "^3.1.6",
     "unsplash-js": "^4.8.0"
