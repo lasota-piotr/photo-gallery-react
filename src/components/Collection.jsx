@@ -38,14 +38,7 @@ class Collection extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.order !== this.state.order) {
-      this.fetchCollectionPhotos();
-    }
-  }
-
   fetchCollectionInfo() {
-    console.log('fetchCollectionInfo');
     const { id } = this.props.match.params;
     getCollection(id)
       .then(collectionInfo => {
@@ -83,7 +76,7 @@ class Collection extends React.Component {
           ) {
             /** Skip photos from props.location.state */
             fetchedCollectionPhotosFiltered = fetchedCollectionPhotosFiltered.slice(
-              this.props.location.state.collectionPhotos.length
+              prevState.collectionPhotos.length
             );
           }
           return {
@@ -106,9 +99,12 @@ class Collection extends React.Component {
 
   handleChangeOrder(event) {
     const { value: order } = event.target;
+    const { state = {} } = this.props.location;
+    const { collectionPhotos } = state;
     this.setState({
       order,
-      collectionPhotos: [],
+      collectionPhotos:
+        order === 'latest' && collectionPhotos ? collectionPhotos : [],
       pageNumber: 1,
       allPhotosAreFetched: false,
     });
