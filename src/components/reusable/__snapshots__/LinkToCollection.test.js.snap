@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Generates anchor with url to collection's page 1`] = `
+<a
+  href="/collections/123456/test-title"
+  onClick={[Function]}
+>
+  Test link
+</a>
+`;

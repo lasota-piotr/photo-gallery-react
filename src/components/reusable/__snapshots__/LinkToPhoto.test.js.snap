@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Generates anchor with url to photo's page 1`] = `
+<a
+  href="/photos/123456"
+  onClick={[Function]}
+>
+  Test link
+</a>
+`;
