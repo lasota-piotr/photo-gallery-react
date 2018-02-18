@@ -10,7 +10,13 @@ const CollectionModal = props => {
     props.history.goBack();
   };
   return (
-    <Modal isOpen onRequestClose={back} style={{ overlay: { zIndex: 2 } }}>
+    <Modal
+      isOpen
+      onRequestClose={back}
+      style={{ overlay: { zIndex: 2 } }}
+      contentLabel="Page of photo"
+      appElement={document.querySelector('#root')}
+    >
       <ModalCloseButton onClick={back} />
       <Photo {...props} />
     </Modal>
