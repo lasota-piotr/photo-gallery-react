@@ -133,8 +133,10 @@ class Collection extends React.Component {
               isLoading={loadStateCollectionPhotos === LOAD_STATE.LOADING}
             />
           </Fragment>
-        ) : (
+        ) : loadStateCollectionInfo === LOAD_STATE.LOADING ? (
           <PageLoading />
+        ) : (
+          <div>Error :(</div>
         )}
       </Wrapper>
     );

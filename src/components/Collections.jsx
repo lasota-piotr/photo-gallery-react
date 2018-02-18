@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  getCollectionPhotos,
-  listFeaturedCollections,
-} from '../api/api';
+import { getCollectionPhotos, listFeaturedCollections } from '../api/api';
 import { LOAD_STATE } from '../constants/constants';
 
 import CollectionsItem from './CollectionsItem';
@@ -81,8 +78,10 @@ class Collections extends React.Component {
               />
             ))}
           </CollectionsLayout>
-        ) : (
+        ) : loadStateCollections === LOAD_STATE.LOADING ? (
           <PageLoading />
+        ) : (
+          <div>Error :(</div>
         )}
       </Wrapper>
     );
