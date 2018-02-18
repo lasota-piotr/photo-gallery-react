@@ -2,7 +2,6 @@ import React from 'react';
 import PhotoImage from './PhotoImage';
 import { LOAD_STATE } from '../constants/constants';
 import { getPhoto } from '../api/api';
-import Loading from './reusable/Loading';
 import PhotoView from './PhotoView';
 
 class Photo extends React.Component {
@@ -27,7 +26,8 @@ class Photo extends React.Component {
   }
 
   componentDidMount() {
-    const { photoInfo = {} } = this.props.location.state = {};
+    const { state = {} } = this.props.location;
+    const { photoInfo = {} } = state;
     if (Object.keys(photoInfo).length <= 0) {
       this.fetchPhotoInfo();
     }
