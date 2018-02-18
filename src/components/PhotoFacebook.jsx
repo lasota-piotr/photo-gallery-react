@@ -7,7 +7,6 @@ import { facebookAppId } from '../../data';
 
 import Button from './reusable/Button';
 
-
 const PhotoFacebookLayout = styled.div`
   margin-bottom: ${props => props.theme.unit};
   display: flex;
