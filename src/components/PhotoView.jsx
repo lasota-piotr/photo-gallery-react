@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LOAD_STATE } from '../constants/constants';
-import Loading from './reusable/Loading';
 import PhotoContent from './PhotoContent';
+import PageLoading from './reusable/PageLoading';
 
 const PhotoView = props => (
   <div>
@@ -26,7 +26,7 @@ function PhotoWrapper(props) {
     loadStatePhotoInfo === LOAD_STATE.LOADING &&
     loadStatePhotoInfoFromCollection === LOAD_STATE.LOADING
   ) {
-    return <Loading />;
+    return <PageLoading />;
   }
 
   return <div>Error</div>;
