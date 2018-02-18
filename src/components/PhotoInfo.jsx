@@ -19,7 +19,10 @@ const PhotoInfo = ({ photoInfoCollapsed, additionalInfoIsLoading }) => {
   const country = location && location.country;
   return (
     <div>
-      <PhotoExternalLinks download={links.download} unsplash={links.html} />
+      <PhotoExternalLinks
+        download={links.download_location}
+        unsplash={links.html}
+      />
       {description && <p>Description: {description}</p>}
       <PhotoInfoCounters
         likes={likes}
