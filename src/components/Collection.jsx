@@ -3,6 +3,8 @@ import { LOAD_STATE } from '../constants/constants';
 import { unsplashGetCollectionPhotos } from '../api/api';
 import InfiniteGrid from './InfiniteGrid';
 import CollectionSelectOrder from './CollectionSelectOrder';
+import Wrapper from './reusable/Wrapper';
+import PageTitle from './reusable/PageTitle';
 
 class Collection extends React.Component {
   constructor(props) {
@@ -65,8 +67,8 @@ class Collection extends React.Component {
     const { params } = this.props.match;
     const { collectionPhotos, order, loadState } = this.state;
     return (
-      <div>
-        Collection {params.name}
+      <Wrapper>
+        <PageTitle>{params.name}</PageTitle>
         <CollectionSelectOrder
           currentOrder={order}
           handleChange={this.handleChangeOrder}
@@ -76,7 +78,7 @@ class Collection extends React.Component {
           loadMore={this.fetchCollectionPhotos}
           isLoading={loadState === LOAD_STATE.LOADING}
         />
-      </div>
+      </Wrapper>
     );
   }
 }

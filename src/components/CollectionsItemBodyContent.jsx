@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import CollectionsItemPhoto from './CollectionsItemPhoto';
+import ImageGallery from './reusable/ImageGallery';
 import media from '../stylesUtils/media';
 
 const CollectionsItemBodyContentLayout = styled.div`
@@ -18,7 +18,7 @@ function CollectionsItemBodyContent({ collectionPhotos = Array(4) }) {
   return (
     <CollectionsItemBodyContentLayout>
       {collectionPhotos.map((photo, index) => (
-        <CollectionsItemPhoto
+        <ImageGallery
           src={photo.urls.thumb}
           key={index}
           color={photo.color}

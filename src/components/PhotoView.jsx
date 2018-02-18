@@ -20,11 +20,7 @@ function PhotoWrapper(props) {
     loadStatePhotoInfo === LOAD_STATE.SUCCESS ||
     loadStatePhotoInfoFromCollection === LOAD_STATE.SUCCESS
   ) {
-    return (
-      <PhotoContent
-        {...props}
-      />
-    );
+    return <PhotoContent {...props} />;
   }
   if (
     loadStatePhotoInfo === LOAD_STATE.LOADING &&
