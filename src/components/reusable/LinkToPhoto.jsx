@@ -13,6 +13,10 @@ const LinkToPhoto = ({ children, id, state }) => (
   </Link>
 );
 
-LinkToPhoto.propTypes = {};
+LinkToPhoto.propTypes = {
+  children: PropTypes.node.isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  state: PropTypes.object,
+};
 
 export default LinkToPhoto;

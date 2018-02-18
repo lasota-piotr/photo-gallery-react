@@ -23,6 +23,10 @@ const CollectionModal = props => {
   );
 };
 
-CollectionModal.propTypes = {};
+CollectionModal.propTypes = {
+  history: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default CollectionModal;

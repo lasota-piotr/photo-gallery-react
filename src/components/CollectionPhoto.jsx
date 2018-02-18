@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { LOAD_STATE } from '../constants/constants';
 import { getPhoto } from '../api/api';
 import timeout from '../helpers/timout';
 import CollectionPhotoContent from './CollectionPhotoContent';
 
-class CollectionPhoto extends Component {
+class CollectionPhoto extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -65,6 +66,10 @@ class CollectionPhoto extends Component {
   }
 }
 
-CollectionPhoto.propTypes = {};
+CollectionPhoto.propTypes = {
+  photo: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  }).isRequired,
+};
 
 export default CollectionPhoto;
