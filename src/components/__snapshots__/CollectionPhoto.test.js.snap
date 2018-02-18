@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Generates CollectionPhoto 1`] = `
+<a
+  href="/photos/jMFo7nlYpUc"
+  onClick={[Function]}
+>
+  <div
+    aria-label=""
+    className="sc-EHOje dhfkeg sc-bdVaJa iCgsfd"
+    color="#fff"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="img"
+    src="https://images.unsplash.com/photo-1516024802505-dca3acba2326?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&s=a3712d1393d8ce3937fc3c5220f00987"
+  />
+</a>
+`;
