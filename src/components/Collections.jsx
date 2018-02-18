@@ -4,8 +4,12 @@ import {
   unsplashListFeaturedCollections,
 } from '../api/api';
 import { LOAD_STATE } from '../constants/constants';
-import Loading from './Loading';
-import CollectionsList from './CollectionsList';
+
+import CollectionsItem from './CollectionsItem';
+import CollectionsLayout from './CollectionsLayout';
+import PageTitle from './reusable/PageTitle';
+import Wrapper from './reusable/Wrapper';
+import PageLoading from './reusable/PageLoading';
 
 class Collections extends React.Component {
   constructor(props) {
@@ -61,23 +65,26 @@ class Collections extends React.Component {
       collectionsPhotos,
     } = this.state;
     return (
-      <div>
+      <Wrapper>
+        <PageTitle>Featured Collections</PageTitle>
         {loadStateCollections === LOAD_STATE.SUCCESS ? (
-          collections.map((collection, index) => (
-            <CollectionsList
-              collection={collection}
-              key={index}
-              collectionPhotos={
-                collectionsPhotos.length > 0 ? collectionsPhotos[index] : []
-              }
-              isLoading={loadStateCollectionsPhotos === LOAD_STATE.LOADING}
-              isError={loadStateCollectionsPhotos === LOAD_STATE.ERROR}
-            />
-          ))
+          <CollectionsLayout>
+            {collections.map((collection, index) => (
+              <CollectionsItem
+                collection={collection}
+                key={index}
+                collectionPhotos={
+                  collectionsPhotos.length > 0 ? collectionsPhotos[index] : []
+                }
+                isLoading={loadStateCollectionsPhotos === LOAD_STATE.LOADING}
+                isError={loadStateCollectionsPhotos === LOAD_STATE.ERROR}
+              />
+            ))}
+          </CollectionsLayout>
         ) : (
-          <Loading />
+          <PageLoading />
         )}
-      </div>
+      </Wrapper>
     );
   }
 }

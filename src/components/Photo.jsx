@@ -2,7 +2,7 @@ import React from 'react';
 import PhotoImage from './PhotoImage';
 import { LOAD_STATE } from '../constants/constants';
 import { getPhoto } from '../api/api';
-import Loading from './Loading';
+import Loading from './reusable/Loading';
 import PhotoView from './PhotoView';
 
 class Photo extends React.Component {

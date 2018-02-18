@@ -1,7 +1,7 @@
 import React from 'react';
 import Waypoint from 'react-waypoint';
 import CollectionPhoto from './CollectionPhoto';
-import Loading from './Loading';
+import Loading from './reusable/Loading';
 
 const InfiniteGrid = ({ elements, loadMore, isLoading }) => (
   <div>

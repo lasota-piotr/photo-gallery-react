@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Loading from './Loading';
+import Loading from './reusable/Loading';
 
 const CollectionPhotoInfo = ({ likes, photoInfoIsLoading, photoInfo }) => {
   const { downloads, location } = photoInfo;

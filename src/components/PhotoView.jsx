@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LOAD_STATE } from '../constants/constants';
-import Loading from './Loading';
+import Loading from './reusable/Loading';
 import PhotoContent from './PhotoContent';
 
 const PhotoView = props => (
