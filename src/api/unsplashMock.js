@@ -15,10 +15,10 @@ const unsplashMock = {
       );
     },
     getCollection() {
-      return delay(4000).then(() => unsplashDataGetCollection);
+      return delay(500).then(() => unsplashDataGetCollection);
     },
     getCollectionPhotos(_, _1, num, order) {
-      return delay(8000).then(() =>
+      return delay(500).then(() =>
         unsplashDatagetCollectionPhotos.slice(0, num)
       );
     },
