@@ -9,9 +9,13 @@ import PageTitle from './reusable/PageTitle';
 class Collection extends React.Component {
   constructor(props) {
     super(props);
+    const { state = {} } = this.props.location;
+    const { collectionInfo = {}, collectionPhotos } = state;
     this.state = {
-      loadState: LOAD_STATE.LOADING,
-      collectionPhotos: [],
+      loadStateCollectionPhotos: collectionPhotos
+        ? LOAD_STATE.SUCCESS
+        : LOAD_STATE.LOADING,
+      collectionPhotos: collectionPhotos || [],
       pageNumber: 1,
       order: 'latest',
       allPhotosAreFetched: false,
@@ -31,24 +35,42 @@ class Collection extends React.Component {
     if (allPhotosAreFetched) {
       return;
     }
-    console.log(pageNumber);
-    this.setState({ pageNumber: pageNumber + 1 });
+    const collectionPhotosAreInLocationState =
+      this.props.location.state && this.props.location.state.collectionPhotos;
     const { params } = this.props.match;
-    this.setState({ loadState: LOAD_STATE.LOADING });
-    unsplashGetCollectionPhotos(params.id, pageNumber, 50, this.state.order)
-      .then(collectionPhotos => {
-        this.setState(prevState => ({
-          allPhotosAreFetched: collectionPhotos.length <= 0,
-          collectionPhotos: [
-            ...prevState.collectionPhotos,
-            ...collectionPhotos,
-          ],
-          loadState: LOAD_STATE.SUCCESS,
-        }));
+    this.setState({ loadStateCollectionPhotos: LOAD_STATE.LOADING });
+    unsplashGetCollectionPhotos(params.id, pageNumber, 30, this.state.order)
+      .then(fetchedCollectionPhotos => {
+        this.setState(prevState => {
+          let fetchedCollectionPhotosFiltered = [...fetchedCollectionPhotos];
+          /*
+          * If it is the first fetch of photos and props.location.state passed photos
+          * skip that photos in fetched photos
+          * */
+          if (
+            collectionPhotosAreInLocationState &&
+            prevState.order === 'latest' &&
+            prevState.pageNumber === 1
+          ) {
+            /** Skip photos from props.location.state */
+            fetchedCollectionPhotosFiltered = fetchedCollectionPhotosFiltered.slice(
+              this.props.location.state.collectionPhotos.length
+            );
+          }
+          return {
+            allPhotosAreFetched: fetchedCollectionPhotos.length <= 0,
+            collectionPhotos: [
+              ...prevState.collectionPhotos,
+              ...fetchedCollectionPhotosFiltered,
+            ],
+            loadStateCollectionPhotos: LOAD_STATE.SUCCESS,
+          };
+        });
+        this.setState({ pageNumber: pageNumber + 1 });
       })
       .catch(() => {
         this.setState({
-          loadState: LOAD_STATE.ERROR,
+          loadStateCollectionPhotos: LOAD_STATE.ERROR,
         });
       });
   }
@@ -65,7 +87,7 @@ class Collection extends React.Component {
 
   render() {
     const { params } = this.props.match;
-    const { collectionPhotos, order, loadState } = this.state;
+    const { collectionPhotos, order, loadStateCollectionPhotos } = this.state;
     return (
       <Wrapper>
         <PageTitle>{params.name}</PageTitle>
@@ -76,7 +98,7 @@ class Collection extends React.Component {
         <InfiniteGrid
           elements={collectionPhotos}
           loadMore={this.fetchCollectionPhotos}
-          isLoading={loadState === LOAD_STATE.LOADING}
+          isLoading={loadStateCollectionPhotos === LOAD_STATE.LOADING}
         />
       </Wrapper>
     );
