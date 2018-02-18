@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import Waypoint from 'react-waypoint';
 import CollectionPhoto from './CollectionPhoto';
@@ -11,15 +11,27 @@ const InfiniteGridLayout = styled.section`
   grid-row-gap: ${props => props.theme.unitLarge};
 `;
 
+const InfiniteGridPlaceholder = styled.div`
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const InfiniteGrid = ({ elements, loadMore, isLoading }) => (
-  <InfiniteGridLayout>
-    {elements.map((element, index) => (
-      <CollectionPhoto photo={element} key={index} />
-    ))}
+  <Fragment>
+    <InfiniteGridLayout>
+      {elements.map((element, index) => (
+        <CollectionPhoto photo={element} key={index} />
+      ))}
+    </InfiniteGridLayout>
     <Waypoint onEnter={loadMore} bottomOffset="-700px">
-      <div>{isLoading ? <Loading /> : <div>End of list</div>}</div>
+      <InfiniteGridPlaceholder>
+        {isLoading ? <Loading /> : <div>End of list</div>}
+      </InfiniteGridPlaceholder>
     </Waypoint>
-  </InfiniteGridLayout>
+  </Fragment>
 );
 
 export default InfiniteGrid;
