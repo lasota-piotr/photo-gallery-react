@@ -11,7 +11,7 @@ const ImageGalleryLayout = styled.div`
 `;
 
 const ImageGallery = ({ alt, ...restProps }) => (
-  <ImageGalleryLayout {...restProps} aria-label={alt} role="img" />
+  <ImageGalleryLayout {...restProps} aria-label={alt || ''} role="img" />
 );
 
 ImageGallery.propTypes = {
