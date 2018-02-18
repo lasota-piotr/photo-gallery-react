@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { LOAD_STATE } from '../constants/constants';
 import { getPhoto } from '../api/api';
-import timout from '../helpers/timout';
+import timeout from '../helpers/timout';
 import CollectionPhotoContent from './CollectionPhotoContent';
 
 class CollectionPhoto extends Component {
@@ -15,7 +15,24 @@ class CollectionPhoto extends Component {
     this.fetchPhotoInfo = this.fetchPhotoInfo.bind(this);
     this.onMouseEnterHandle = this.onMouseEnterHandle.bind(this);
     this.onMouseLeaveHandle = this.onMouseLeaveHandle.bind(this);
-    this.timeOutMouseEnter = {};
+  }
+
+  onMouseEnterHandle() {
+    this.timeOutMouseEnter = timeout(500);
+    this.timeOutMouseEnter.promise.then(() => {
+      this.setState({ mouseIsOver: true });
+      if (this.state.loadStatePhotoInfo !== LOAD_STATE.SUCCESS) {
+        this.fetchPhotoInfo();
+      }
+    });
+  }
+
+  onMouseLeaveHandle() {
+    if (this.timeOutMouseEnter && this.timeOutMouseEnter.cancel) {
+      this.timeOutMouseEnter.cancel();
+    }
+
+    this.setState({ mouseIsOver: false });
   }
 
   fetchPhotoInfo() {
@@ -30,21 +47,6 @@ class CollectionPhoto extends Component {
       .catch(() => {
         this.setState({ loadStatePhotoInfo: LOAD_STATE.ERROR });
       });
-  }
-
-  onMouseEnterHandle() {
-    this.timeOutMouseEnter = timout(500);
-    this.timeOutMouseEnter.promise.then(() => {
-      this.setState({ mouseIsOver: true });
-      if (this.state.loadStatePhotoInfo !== LOAD_STATE.SUCCESS) {
-        this.fetchPhotoInfo();
-      }
-    });
-  }
-
-  onMouseLeaveHandle() {
-    this.timeOutMouseEnter.cancel();
-    this.setState({ mouseIsOver: false });
   }
 
   render() {
