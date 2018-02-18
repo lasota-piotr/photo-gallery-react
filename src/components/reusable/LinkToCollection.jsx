@@ -3,8 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import slugify from '../../helpers/slugify';
 
-const LinkToCollection = ({ children, id, title }) => (
-  <Link to={`/collections/${id}/${slugify(title).slice(0, 25)}`}>
+const LinkToCollection = ({ children, id, title, state }) => (
+  <Link
+    to={{
+      pathname: `/collections/${id}/${slugify(title).slice(0, 25)}`,
+      state,
+    }}
+  >
     {children}
   </Link>
 );

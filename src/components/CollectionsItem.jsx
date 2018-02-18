@@ -17,11 +17,19 @@ const CollectionsItemLayout = styled.div`
   `};
 `;
 
-const CollectionsItem = ({ collection, ...restProps }) => (
+const CollectionsItem = ({
+  collectionInfo,
+  collectionPhotos,
+  ...restProps
+}) => (
   <CollectionsItemLayout>
-    <LinkToCollection id={collection.id} title={collection.title}>
-      <CollectionsItemTitle>{collection.title}</CollectionsItemTitle>
-      <CollectionsItemBody {...restProps} />
+    <LinkToCollection
+      id={collectionInfo.id}
+      title={collectionInfo.title}
+      state={{ collectionInfo, collectionPhotos }}
+    >
+      <CollectionsItemTitle>{collectionInfo.title}</CollectionsItemTitle>
+      <CollectionsItemBody collectionPhotos={collectionPhotos} {...restProps} />
     </LinkToCollection>
   </CollectionsItemLayout>
 );

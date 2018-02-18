@@ -71,7 +71,7 @@ class Collections extends React.Component {
           <CollectionsLayout>
             {collections.map((collection, index) => (
               <CollectionsItem
-                collection={collection}
+                collectionInfo={collection}
                 key={index}
                 collectionPhotos={
                   collectionsPhotos.length > 0 ? collectionsPhotos[index] : []
