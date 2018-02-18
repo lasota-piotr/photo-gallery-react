@@ -66,7 +66,7 @@ class Collection extends React.Component {
         this.setState(prevState => {
           let fetchedCollectionPhotosFiltered = [...fetchedCollectionPhotos];
           /*
-          * If it is the first fetch of photos and props.location.state passed photos
+          * If it is the first fetch of photos and props.location.state has photos, then
           * skip that photos in fetched photos
           * */
           if (
