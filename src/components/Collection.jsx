@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { LOAD_STATE } from '../constants/constants';
-import { getCollectionPhotos } from '../api/api';
+import { getCollectionPhotos, getCollection } from '../api/api';
 import InfiniteGrid from './InfiniteGrid';
 import CollectionSelectOrder from './CollectionSelectOrder';
 import Wrapper from './reusable/Wrapper';
 import PageTitle from './reusable/PageTitle';
+import PageLoading from './reusable/PageLoading';
 
 class Collection extends React.Component {
   constructor(props) {
     super(props);
     const { state = {} } = this.props.location;
-    const { collectionInfo = {}, collectionPhotos } = state;
+    const { collectionInfo, collectionPhotos } = state;
     this.state = {
       loadStateCollectionPhotos: collectionPhotos
         ? LOAD_STATE.SUCCESS
         : LOAD_STATE.LOADING,
+      loadStateCollectionInfo: collectionInfo
+        ? LOAD_STATE.SUCCESS
+        : LOAD_STATE.LOADING,
       collectionPhotos: collectionPhotos || [],
+      collectionInfo: collectionInfo || {},
       pageNumber: 1,
       order: 'latest',
       allPhotosAreFetched: false,
@@ -24,10 +29,34 @@ class Collection extends React.Component {
     this.handleChangeOrder = this.handleChangeOrder.bind(this);
   }
 
+  componentDidMount() {
+    const { state = {} } = this.props.location;
+    const { collectionInfo } = state;
+    if (!collectionInfo) {
+      this.fetchCollectionInfo();
+      this.fetchCollectionPhotos();
+    }
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevState.order !== this.state.order) {
       this.fetchCollectionPhotos();
     }
+  }
+
+  fetchCollectionInfo() {
+    console.log('fetchCollectionInfo');
+    const { id } = this.props.match.params;
+    getCollection(id)
+      .then(collectionInfo => {
+        this.setState({
+          collectionInfo,
+          loadStateCollectionInfo: LOAD_STATE.SUCCESS,
+        });
+      })
+      .catch(() => {
+        this.setState({ loadStateCollectionInfo: LOAD_STATE.ERROR });
+      });
   }
 
   fetchCollectionPhotos() {
@@ -86,20 +115,31 @@ class Collection extends React.Component {
   }
 
   render() {
-    const { params } = this.props.match;
-    const { collectionPhotos, order, loadStateCollectionPhotos } = this.state;
+    const {
+      collectionPhotos,
+      order,
+      loadStateCollectionPhotos,
+      loadStateCollectionInfo,
+      collectionInfo,
+    } = this.state;
     return (
       <Wrapper>
-        <PageTitle>{params.name}</PageTitle>
-        <CollectionSelectOrder
-          currentOrder={order}
-          handleChange={this.handleChangeOrder}
-        />
-        <InfiniteGrid
-          elements={collectionPhotos}
-          loadMore={this.fetchCollectionPhotos}
-          isLoading={loadStateCollectionPhotos === LOAD_STATE.LOADING}
-        />
+        {loadStateCollectionInfo === LOAD_STATE.SUCCESS ? (
+          <Fragment>
+            <PageTitle>{collectionInfo.title}</PageTitle>
+            <CollectionSelectOrder
+              currentOrder={order}
+              handleChange={this.handleChangeOrder}
+            />
+            <InfiniteGrid
+              elements={collectionPhotos}
+              loadMore={this.fetchCollectionPhotos}
+              isLoading={loadStateCollectionPhotos === LOAD_STATE.LOADING}
+            />
+          </Fragment>
+        ) : (
+          <PageLoading />
+        )}
       </Wrapper>
     );
   }
