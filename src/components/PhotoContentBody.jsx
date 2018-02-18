@@ -5,7 +5,6 @@ import PhotoContentBodyLayout from './PhotoContentBodyLayout';
 import Hr from './reusable/Hr';
 import PhotoFacebook from './PhotoFacebook';
 
-
 const PhotoContentBody = ({ photoInfoCollapsed, additionalInfoIsLoading }) => {
   const { links, user } = photoInfoCollapsed;
   return (
