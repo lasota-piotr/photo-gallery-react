@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactPlaceholder from 'react-placeholder';
+import MdLocationOn from 'react-icons/lib/md/location-on';
 import PhotoInfoCounters from './PhotoInfoCounters';
 import PhotoExternalLinks from './PhotoExternalLinks';
-import MdLocationOn from 'react-icons/lib/md/location-on';
 
 const PhotoInfo = ({ photoInfoCollapsed, additionalInfoIsLoading }) => {
   const {
