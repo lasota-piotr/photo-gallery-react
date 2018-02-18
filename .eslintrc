@@ -5,6 +5,8 @@
   },
   "extends": [
     "airbnb",
-    "plugin:prettier/recommended"
-  ]
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended"
+  ],
+  "plugins": ["jest"]
 }
