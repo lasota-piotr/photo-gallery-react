@@ -17,38 +17,38 @@ const Button = styled.button`
   ${props =>
     props.primary &&
     css`
-      background-color: ${props => props.theme.colorPrimary};
+      background-color: ${props.theme.colorPrimary};
 
       &,
       &:hover,
       &:active,
       &:focus {
         text-decoration: none;
-        color: ${props => props.theme.textColor};
+        color: ${props.theme.textColor};
       }
 
       &:hover,
       &:focus {
-        background-color: ${props => props.theme.colorPrimaryDark};
+        background-color: ${props.theme.colorPrimaryDark};
       }
     `}
   
   ${props =>
     props.secondary &&
     css`
-      background-color: ${props => props.theme.colorSecondary};
+      background-color: ${props.theme.colorSecondary};
 
       &,
       &:hover,
       &:active,
       &:focus {
         text-decoration: none;
-        color: ${props => props.theme.textColor};
+        color: ${props.theme.textColor};
       }
 
       &:hover,
       &:focus {
-        background-color: ${props => props.theme.colorSecondaryDark};
+        background-color: ${props.theme.colorSecondaryDark};
       }
     `}
   
@@ -56,14 +56,14 @@ const Button = styled.button`
   ${props =>
     props.size === 'small' &&
     css`
-      padding: ${props => props.theme.unitTiny}
-        ${props => props.theme.unitSmall};
+      padding: ${props.theme.unitTiny}
+        ${props.theme.unitSmall};
     `}
   
   ${props =>
     props.size === 'large' &&
     css`
-      padding: ${props => props.theme.unit} ${props => props.theme.unitLarge};
+      padding: ${props.theme.unit} ${props.theme.unitLarge};
     `}
   
   ${props =>
@@ -76,8 +76,8 @@ const Button = styled.button`
     props.ghost &&
     css`
       border: 2px solid currentColor;
-      padding: calc(${props => props.theme.unitSmall} - 2px)
-        calc(${props => props.theme.unit} - 2px);
+      padding: calc(${props.theme.unitSmall} - 2px)
+        calc(${props.theme.unit} - 2px);
       &,
       &:hover,
       &:active,
@@ -90,26 +90,26 @@ const Button = styled.button`
     props.ghost &&
     props.size === 'small' &&
     css`
-      padding: calc(${props => props.theme.unitTiny} - 2px)
-        calc(${props => props.theme.unitSmall} - 2px);
+      padding: calc(${props.theme.unitTiny} - 2px)
+        calc(${props.theme.unitSmall} - 2px);
     `}
   
   ${props =>
     props.ghost &&
     props.size === 'large' &&
     css`
-      padding: calc(${props => props.theme.unit} - 2px) calc(1.5rem - 2px);
+      padding: calc(${props.theme.unit} - 2px) calc(1.5rem - 2px);
     `}
   
   ${props =>
     props.ghost &&
     props.primary &&
     css`
-      color: ${props => props.theme.colorPrimary};
+      color: ${props.theme.colorPrimary};
 
       &:hover,
       &:focus {
-        color: ${props => props.theme.colorPrimaryDark};
+        color: ${props.theme.colorPrimaryDark};
       }
     `}
   
@@ -117,11 +117,11 @@ const Button = styled.button`
     props.ghost &&
     props.secondary &&
     css`
-      color: ${props => props.theme.colorSecondary};
+      color: ${props.theme.colorSecondary};
 
       &:hover,
       &:focus {
-        color: ${props => props.theme.colorSecondaryDark};
+        color: ${props.theme.colorSecondaryDark};
       }
     `}
   
@@ -129,11 +129,11 @@ const Button = styled.button`
     props.ghost &&
     props.muted &&
     css`
-      color: ${props => props.theme.colorGrayDark};
-      border-color: ${props => props.theme.colorGray};
+      color: ${props.theme.colorGrayDark};
+      border-color: ${props.theme.colorGray};
       &:hover,
       &:focus {
-        color: ${props => props.theme.colorGrayVeryDarkDark};
+        color: ${props.theme.colorGrayVeryDarkDark};
       }
     `}
 `;
