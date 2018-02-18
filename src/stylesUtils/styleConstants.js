@@ -4,6 +4,7 @@ console.log(styles);
 
 export const mqBreakPoints = {
   mobile: 320,
+  xmobile: 450,
   tablet: 740,
   desktop: 980,
   wide: 1300,
