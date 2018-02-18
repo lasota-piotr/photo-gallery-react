@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FacebookProvider, { Share, Like } from 'react-facebook';
 import FaShareSquareO from 'react-icons/lib/fa/share-square-o';
-import { facebookAppId } from '../../data';
+import { facebookAppId } from '../api/api';
 
 import Button from './reusable/Button';
 
