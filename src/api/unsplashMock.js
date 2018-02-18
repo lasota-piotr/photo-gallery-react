@@ -1,4 +1,5 @@
 import {
+  unsplashDataGetCollection,
   unsplashDatagetCollectionPhotos,
   unsplashDataListFeaturedCollections,
   unsplashDataGetPhotoWithCountry,
@@ -13,8 +14,11 @@ const unsplashMock = {
         unsplashDataListFeaturedCollections.slice(0, num)
       );
     },
+    getCollection() {
+      return delay(4000).then(() => unsplashDataGetCollection);
+    },
     getCollectionPhotos(_, _1, num, order) {
-      return delay(500).then(() =>
+      return delay(8000).then(() =>
         unsplashDatagetCollectionPhotos.slice(0, num)
       );
     },

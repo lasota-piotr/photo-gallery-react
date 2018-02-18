@@ -7,6 +7,9 @@ import Unsplash, { toJson } from 'unsplash-js';
 export const listFeaturedCollections = () =>
   unsplash.collections.listFeaturedCollections(1, 4).then(toJson);
 
+export const getCollection = (...args) =>
+  unsplash.collections.getCollection(...args).then(toJson);
+
 export const getCollectionPhotos = (...args) =>
   unsplash.collections.getCollectionPhotos(...args).then(toJson);
 
