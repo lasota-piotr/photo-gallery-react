@@ -14,7 +14,7 @@ const extractSass = new ExtractTextPlugin({
 
 module.exports = {
   entry: {
-    app: './src/index.jsx',
+    app: './src/index.js',
   },
   output: {
     filename: '[name].bundle.js',
