@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  unsplashGetCollectionPhotos,
-  unsplashListFeaturedCollections,
+  getCollectionPhotos,
+  listFeaturedCollections,
 } from '../api/api';
 import { LOAD_STATE } from '../constants/constants';
 
@@ -28,7 +28,7 @@ class Collections extends React.Component {
   }
 
   fetchCollections() {
-    unsplashListFeaturedCollections()
+    listFeaturedCollections()
       .then(collections => {
         this.setState({
           collections,
@@ -39,7 +39,7 @@ class Collections extends React.Component {
       .then(collections =>
         Promise.all(
           collections.map(collection =>
-            unsplashGetCollectionPhotos(collection.id, 1, 10, 'latest')
+            getCollectionPhotos(collection.id, 1, 10, 'latest')
           )
         )
       )

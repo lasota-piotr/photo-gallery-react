@@ -4,10 +4,10 @@ import Unsplash, { toJson } from 'unsplash-js';
 //
 // const unsplash = new Unsplash(unsplashData);
 
-export const unsplashListFeaturedCollections = () =>
-  unsplash.collections.listFeaturedCollections(1, 3).then(toJson);
+export const listFeaturedCollections = () =>
+  unsplash.collections.listFeaturedCollections(1, 4).then(toJson);
 
-export const unsplashGetCollectionPhotos = (...args) =>
+export const getCollectionPhotos = (...args) =>
   unsplash.collections.getCollectionPhotos(...args).then(toJson);
 
 export const getPhoto = (...args) =>

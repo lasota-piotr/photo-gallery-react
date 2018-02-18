@@ -1,6 +1,6 @@
 import React from 'react';
 import { LOAD_STATE } from '../constants/constants';
-import { unsplashGetCollectionPhotos } from '../api/api';
+import { getCollectionPhotos } from '../api/api';
 import InfiniteGrid from './InfiniteGrid';
 import CollectionSelectOrder from './CollectionSelectOrder';
 import Wrapper from './reusable/Wrapper';
@@ -39,7 +39,7 @@ class Collection extends React.Component {
       this.props.location.state && this.props.location.state.collectionPhotos;
     const { params } = this.props.match;
     this.setState({ loadStateCollectionPhotos: LOAD_STATE.LOADING });
-    unsplashGetCollectionPhotos(params.id, pageNumber, 30, this.state.order)
+    getCollectionPhotos(params.id, pageNumber, 30, this.state.order)
       .then(fetchedCollectionPhotos => {
         this.setState(prevState => {
           let fetchedCollectionPhotosFiltered = [...fetchedCollectionPhotos];
