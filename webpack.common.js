@@ -9,17 +9,17 @@ const data = fs.existsSync(path.resolve('./data.js')) && require('./data.js');
 
 const extractSass = new ExtractTextPlugin({
   filename: '[name].[contenthash].css',
-  disable: process.env.NODE_ENV === 'development',
+  disable: process.env.NODE_ENV === 'development'
 });
 
 module.exports = {
   entry: {
-    app: './src/index.js',
+    app: './src/index.js'
   },
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -31,30 +31,30 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
-                sourceMap: true,
-              },
+                sourceMap: true
+              }
             },
             {
               loader: 'sass-loader',
               options: {
-                sourceMap: true,
-              },
-            },
+                sourceMap: true
+              }
+            }
           ],
           // use style-loader in development
-          fallback: 'style-loader',
-        }),
-      },
-    ],
+          fallback: 'style-loader'
+        })
+      }
+    ]
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx']
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'PhotoFlix',
-      template: 'index.html',
+      template: 'index.html'
     }),
     extractSass,
     new webpack.DefinePlugin({
@@ -71,11 +71,11 @@ module.exports = {
           process.env.UNSPLASH_SECRET ||
             (data && data.unsplashData.secret) ||
             ''
-        ),
-      },
-    }),
+        )
+      }
+    })
   ],
   devServer: {
-    historyApiFallback: true,
-  },
+    historyApiFallback: true
+  }
 };
