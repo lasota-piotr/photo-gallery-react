@@ -34,7 +34,6 @@ class Photo extends React.Component {
   }
 
   fetchPhotoInfo() {
-    console.log('fetchPhotoInfo');
     const { id } = this.props.match.params;
     getPhoto(id)
       .then(photoInfo => {

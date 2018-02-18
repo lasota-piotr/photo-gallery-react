@@ -1,7 +1,5 @@
 import styles from '../styles.scss';
 
-console.log(styles);
-
 export const mqBreakPoints = {
   mobile: 320,
   xmobile: 450,
