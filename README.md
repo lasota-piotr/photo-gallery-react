@@ -24,3 +24,6 @@ npm run build
 ```bash
 npm run test
 ```
+
+## Mock data
+On the branch **mock** is enabled the data mocking instead of Unsplash API
