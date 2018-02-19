@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Collections correctly 1`] = `
+<div
+  className="sc-dnqmqq hrXOm"
+>
+  <h1
+    className="sc-htoDjs eiveUc"
+  >
+    Featured Collections
+  </h1>
+  <div
+    className="sc-iwsKbI jXxgDO"
+  >
+    <div
+      className="sc-bdVaJa dbvdQh"
+    >
+      Loading
+    </div>
+  </div>
+</div>
+`;
