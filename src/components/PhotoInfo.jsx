@@ -5,7 +5,12 @@ import MdLocationOn from 'react-icons/lib/md/location-on';
 import PhotoInfoCounters from './PhotoInfoCounters';
 import PhotoExternalLinks from './PhotoExternalLinks';
 
-const PhotoInfo = ({ photoInfoCollapsed, additionalInfoIsLoading }) => {
+const PhotoInfo = ({
+  photoInfoCollapsed,
+  additionalInfoIsLoading,
+  photoDownloadLink,
+  downloadLinkIsLoading,
+}) => {
   const {
     description,
     categories,
@@ -20,8 +25,9 @@ const PhotoInfo = ({ photoInfoCollapsed, additionalInfoIsLoading }) => {
   return (
     <div>
       <PhotoExternalLinks
-        download={links.download_location}
+        download={photoDownloadLink}
         unsplash={links.html}
+        downloadLinkIsLoading={downloadLinkIsLoading}
       />
       {description && <p>Description: {description}</p>}
       <PhotoInfoCounters

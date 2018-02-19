@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactPlaceholder from 'react-placeholder';
 import styled from 'styled-components';
 import MdFileDownload from 'react-icons/lib/md/file-download';
 import Button from './reusable/Button';
@@ -18,14 +19,20 @@ const PhotoExternalLinksItem = styled.div`
   margin-top: 0;
 `;
 
-const PhotoExternalLinks = ({ download, unsplash }) => (
+const PhotoExternalLinks = ({ download, unsplash, downloadLinkIsLoading }) => (
   <PhotoExternalLinksLayout>
     <PhotoExternalLinksItem>
-      <ExternalLink to={download}>
-        <Button primary size="small">
-          <MdFileDownload /> Download
-        </Button>
-      </ExternalLink>
+      <ReactPlaceholder
+        type="rect"
+        ready={!downloadLinkIsLoading}
+        style={{ width: 118, height: 40, backgroundColor: '#eaeaea' }}
+      >
+        <ExternalLink to={download}>
+          <Button primary size="small">
+            <MdFileDownload /> Download
+          </Button>
+        </ExternalLink>
+      </ReactPlaceholder>
     </PhotoExternalLinksItem>
 
     <PhotoExternalLinksItem>

@@ -3774,3 +3774,8 @@ export const unsplashDataGetPhotoWithCountry = {
   views: 102372,
   downloads: 235,
 };
+
+export const unsplashDataDownloadPhoto = {
+  url:
+    'https://images.unsplash.com/photo-1518822275865-16eec4d3023d?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&s=dd12aee6f170187fac0a14fb5b0c3de1',
+};
