@@ -1,4 +1,4 @@
-import unsplash from './unsplashMock';
+// import unsplash from './unsplashMock';
 import Unsplash, { toJson } from 'unsplash-js';
 export const facebookAppId = process.env.FACEBOOK_APP_ID;
 
@@ -7,7 +7,7 @@ const unsplashData = {
   secret: process.env.UNSPLASH_SECRET,
 };
 
-// const unsplash = new Unsplash(unsplashData);
+const unsplash = new Unsplash(unsplashData);
 
 export const listFeaturedCollections = () =>
   unsplash.collections.listFeaturedCollections(1, 4).then(toJson);
