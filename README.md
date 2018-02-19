@@ -1,6 +1,6 @@
 # photo-gallery-react
 
-##Demo
+## Demo
 [Demo Unsplash API](https://photoflix.netlify.com) (50 requests per hour)
 
 [Demo with mock data](https://photoflix-mock.netlify.com)
