@@ -20,3 +20,9 @@ export const getCollectionPhotos = (...args) =>
 
 export const getPhoto = (...args) =>
   unsplash.photos.getPhoto(...args).then(toJson);
+
+/*
+* This accepts a photo JSON object, not a URL string or photo ID
+* */
+export const downloadPhoto = (...args) =>
+  unsplash.photos.downloadPhoto(...args).then(toJson);

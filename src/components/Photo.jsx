@@ -1,7 +1,6 @@
 import React from 'react';
-import PhotoImage from './PhotoImage';
 import { LOAD_STATE } from '../constants/constants';
-import { getPhoto } from '../api/api';
+import { downloadPhoto, getPhoto } from '../api/api';
 import PhotoView from './PhotoView';
 
 class Photo extends React.Component {
@@ -11,26 +10,36 @@ class Photo extends React.Component {
     const { photoInfo = {}, photoInfoFromCollection = {} } =
       location.state || {};
     this.state = {
-      loadStatePhotoInfo:
-        Object.keys(photoInfo).length > 0
-          ? LOAD_STATE.SUCCESS
-          : LOAD_STATE.LOADING,
-      loadStatePhotoInfoFromCollection:
-        Object.keys(photoInfoFromCollection).length > 0
-          ? LOAD_STATE.SUCCESS
-          : LOAD_STATE.LOADING,
+      loadStatePhotoInfo: photoInfo.id
+        ? LOAD_STATE.SUCCESS
+        : LOAD_STATE.LOADING,
+      loadStatePhotoInfoFromCollection: photoInfoFromCollection.id
+        ? LOAD_STATE.SUCCESS
+        : LOAD_STATE.LOADING,
       photoInfo,
       photoInfoFromCollection,
+      photoDownloadLink: '',
+      loadStateDownloadLink: LOAD_STATE.LOADING,
     };
     this.fetchPhotoInfo = this.fetchPhotoInfo.bind(this);
   }
 
   componentDidMount() {
-    const { state = {} } = this.props.location;
-    const { photoInfo = {} } = state;
-    if (Object.keys(photoInfo).length <= 0) {
+    const { photoInfo } = this.state;
+    if (!photoInfo.id) {
       this.fetchPhotoInfo();
+    } else {
+      this.fetchDownloadPhotoLink(photoInfo);
     }
+  }
+
+  fetchDownloadPhotoLink(photoInfo) {
+    downloadPhoto(photoInfo).then(reposonse => {
+      this.setState({
+        photoDownloadLink: reposonse.url,
+        loadStateDownloadLink: LOAD_STATE.SUCCESS,
+      });
+    });
   }
 
   fetchPhotoInfo() {
@@ -41,6 +50,7 @@ class Photo extends React.Component {
           photoInfo,
           loadStatePhotoInfo: LOAD_STATE.SUCCESS,
         });
+        this.fetchDownloadPhotoLink(photoInfo);
       })
       .catch(() => {
         this.setState({ loadStatePhotoInfo: LOAD_STATE.ERROR });
@@ -53,9 +63,13 @@ class Photo extends React.Component {
       loadStatePhotoInfoFromCollection,
       photoInfo,
       photoInfoFromCollection,
+      photoDownloadLink,
+      loadStateDownloadLink,
     } = this.state;
     return (
       <PhotoView
+        photoDownloadLink={photoDownloadLink}
+        loadStateDownloadLink={loadStateDownloadLink}
         loadStatePhotoInfo={loadStatePhotoInfo}
         loadStatePhotoInfoFromCollection={loadStatePhotoInfoFromCollection}
         photoInfoCollapsed={{

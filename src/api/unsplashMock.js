@@ -4,6 +4,7 @@ import {
   unsplashDataListFeaturedCollections,
   unsplashDataGetPhotoWithCountry,
   unsplashDataGetPhotoWithoutCountry,
+  unsplashDataDownloadPhoto,
 } from './unsplashMockData';
 import delay from '../helpers/delay';
 
@@ -26,6 +27,9 @@ const unsplashMock = {
   photos: {
     getPhoto() {
       return delay(500).then(() => unsplashDataGetPhotoWithCountry);
+    },
+    downloadPhoto() {
+      return delay(500).then(() => unsplashDataDownloadPhoto);
     },
   },
 };

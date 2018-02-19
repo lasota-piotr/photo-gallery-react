@@ -10,7 +10,7 @@ const PhotoContentLayout = styled.div`
   margin-bottom: ${props => props.theme.unit};
 `;
 
-const PhotoContent = ({ photoInfoCollapsed, loadStatePhotoInfo }) => (
+const PhotoContent = ({ photoInfoCollapsed, loadStatePhotoInfo, photoDownloadLink, loadStateDownloadLink }) => (
   <PhotoContentLayout>
     <PhotoImage
       srcRegular={photoInfoCollapsed.urls.regular}
@@ -20,8 +20,10 @@ const PhotoContent = ({ photoInfoCollapsed, loadStatePhotoInfo }) => (
       }
     />
     <PhotoContentBody
+      photoDownloadLink={photoDownloadLink}
       photoInfoCollapsed={photoInfoCollapsed}
       additionalInfoIsLoading={loadStatePhotoInfo === LOAD_STATE.LOADING}
+      downloadLinkIsLoading={loadStateDownloadLink === LOAD_STATE.LOADING}
     />
   </PhotoContentLayout>
 );
