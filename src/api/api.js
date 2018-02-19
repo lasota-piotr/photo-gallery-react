@@ -1,5 +1,5 @@
 import unsplash from './unsplashMock';
-import Unsplash, { toJson } from 'unsplash-js';
+import { toJson } from 'unsplash-js';
 export const facebookAppId = process.env.FACEBOOK_APP_ID;
 
 const unsplashData = {
